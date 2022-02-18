@@ -1,0 +1,15 @@
+% rebase('base.html', title="Login")
+
+<h1>Hello login</h1>
+
+<form class="form" action="/login" method="post">
+  <label class="form__field" for="user-email">
+    <span>Email address</span>
+    <input type="email" name="user-email" id="user-email" placeholder="Enter your email address" required />
+  </label>
+  <label class="form__field" for="user-email">
+    <span>Password</span>
+    <input type="password" name="user-password" id="user-password" placeholder="Enter your password" required />
+  </label>
+  <button type="submit">Log in</button>
+</form>
