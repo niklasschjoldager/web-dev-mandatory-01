@@ -4,16 +4,18 @@ from bottle import error, get, redirect, run, static_file, view
 ############################################################
 @get("/app.css")
 def _():
-    return static_file("app.css", root=".")
+    return static_file("/app.css", root="./styles")
 
 
 ############################################################
 import index_get  # GET
-import signup_get  # GET
 import login_get  # GET
+import logout_get  # GET
+import home_get  # GET
 
 import signup_post  # POST
 import login_post  # POST
+
 
 ############################################################
 @error(404)
