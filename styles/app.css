@@ -136,6 +136,17 @@ section {
   color: var(--clr-black);
 }
 
+.tweet__delete-button {
+  all: unset;
+  display: block;
+  cursor: pointer;
+}
+
+.icon-button {
+  all: unset;
+  cursor: pointer;
+}
+
 .tweet__message {
   margin-bottom: 0;
 }

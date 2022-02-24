@@ -16,6 +16,7 @@ import home_get  # GET
 import signup_post  # POST
 import login_post  # POST
 import tweet_post  # POST
+import tweet_delete  # POST
 
 
 ############################################################
