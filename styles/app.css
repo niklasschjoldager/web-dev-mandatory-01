@@ -29,10 +29,19 @@ h6 {
   max-width: 35ch;
 }
 
+ul {
+  margin-left: 0;
+  padding: 0;
+}
+
 p,
 a {
   margin-top: 0;
   max-width: 65ch;
+}
+
+a:visited {
+  color: currentColor;
 }
 
 body {
@@ -50,7 +59,8 @@ section {
 }
 
 .site-header {
-  padding: 5rem 1rem;
+  padding-block: 1rem;
+  padding-inline: 1.5rem;
   background-color: var(--clr-primary);
 }
 
@@ -122,6 +132,7 @@ section {
   grid-area: footer;
   display: grid;
   place-content: center;
+  gap: 0.5rem;
 }
 
 .tweet__user-image {
@@ -136,7 +147,7 @@ section {
   color: var(--clr-black);
 }
 
-.tweet__delete-button {
+.tweet__action-button {
   all: unset;
   display: block;
   cursor: pointer;
@@ -149,4 +160,29 @@ section {
 
 .tweet__message {
   margin-bottom: 0;
+}
+
+.navigation {
+  color: var(--clr-white);
+}
+
+.navigation__list {
+  list-style: none;
+  color: var(--clr-white);
+  display: flex;
+  justify-content: space-between;
+}
+
+.navigation__link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  gap: 1rem;
+}
+
+.navigation__icon {
+  height: 3rem;
+  width: 3rem;
+  display: inline-flex;
 }

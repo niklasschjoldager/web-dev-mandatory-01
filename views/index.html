@@ -1,32 +1,37 @@
 % rebase('base.html', title="Welcome to Tweeter")
 
-<h1>New on Tweeter?</h1>
+% include("header_index")
 
-<form class="form" action="/signup" method="post">
-  <fieldset class="form__fieldset">
-    <legend class="form__legend">Create account</legend>
-    <label class="form__field" for="user-username">
-      <span>Username</span>
-      <input type="text" name="user-username" id="user-username" placeholder="Enter an unique username" required />
-    </label>
-    <label class="form__field" for="user-email">
-      <span>Email address</span>
-      <input type="email" name="user-email" id="user-email" placeholder="Enter your email address" required />
-    </label>
-    <label class="form__field" for="user-password">
-      <span>Password</span>
-      <input type="password" name="user-password" id="user-password" placeholder="Enter a strong password" required />
-    </label>
-    <label class="form__field" for="user-first-name">
-      <span>First Name</span>
-      <input type="text" name="user-first-name" id="user-first-name" placeholder="Enter your first name" required />
-    </label>
-    <label class="form__field" for="user-last-name">
-      <span>Last Name</span>
-      <input type="text" name="user-last-name" id="user-last-name" placeholder="Enter your last name" required />
-    </label>
-    <button type="submit">Create account</button>
-  </fieldset>
-</form>
+<main class="site-content">
+  <h1>New on Tweeter?</h1>
 
-<p>Have an account already? <a href="/login">Log in</a></p>
+  <form class="form" action="/signup" method="post">
+    <fieldset class="form__fieldset">
+      <legend class="form__legend">Create account</legend>
+      <label class="form__field" for="user-username">
+        <span>Username</span>
+        <input type="text" name="user-username" id="user-username" placeholder="Enter an unique username" required />
+      </label>
+      <label class="form__field" for="user-email">
+        <span>Email address</span>
+        <input type="email" name="user-email" id="user-email" placeholder="Enter your email address" required />
+      </label>
+      <label class="form__field" for="user-password">
+        <span>Password</span>
+        <input type="password" name="user-password" id="user-password" placeholder="Enter a strong password" required />
+      </label>
+      <label class="form__field" for="user-first-name">
+        <span>First Name</span>
+        <input type="text" name="user-first-name" id="user-first-name" placeholder="Enter your first name" required />
+      </label>
+      <label class="form__field" for="user-last-name">
+        <span>Last Name</span>
+        <input type="text" name="user-last-name" id="user-last-name" placeholder="Enter your last name" required />
+      </label>
+      <button type="submit">Create account</button>
+    </fieldset>
+  </form>
+
+  <p>Have an account already? <a href="/login">Log in</a></p>
+
+</main>
