@@ -31,6 +31,7 @@ h6 {
 
 p,
 a {
+  margin-top: 0;
   max-width: 65ch;
 }
 
@@ -41,6 +42,11 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100%;
+  line-height: 1.5;
+}
+
+section {
+  padding-block: 3rem;
 }
 
 .site-header {
@@ -63,7 +69,8 @@ body {
   text-align: center;
 }
 
-.form {
+.form,
+.form__fieldset {
   display: grid;
   gap: 1rem;
 }
@@ -71,4 +78,64 @@ body {
 .form__field {
   display: grid;
   gap: 0.25rem;
+}
+
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: block;
+  fill: currentColor;
+}
+
+.tweet-container {
+  display: grid;
+  border-top: 1px solid var(--clr-lighter-gray);
+}
+
+.tweet {
+  padding-block: 1rem;
+  display: grid;
+  grid-template-areas:
+    "aside header footer"
+    "aside body footer";
+  grid-template-columns: max-content auto max-content;
+  grid-template-rows: max-content auto max-content;
+  gap: 0.5rem 1rem;
+  border-bottom: 1px solid var(--clr-lighter-gray);
+}
+
+.tweet__aside {
+  grid-area: aside;
+}
+
+.tweet__header {
+  grid-area: header;
+  color: var(--clr-dark-gray);
+  font-size: 0.9rem;
+}
+
+.tweet__body {
+  grid-area: body;
+}
+
+.tweet__footer {
+  grid-area: footer;
+  display: grid;
+  place-content: center;
+}
+
+.tweet__user-image {
+  padding: 1rem;
+  color: var(--clr-white);
+  background-color: var(--clr-light-gray);
+  border-radius: 50%;
+}
+
+.tweet__user-full-name {
+  font-weight: bold;
+  color: var(--clr-black);
+}
+
+.tweet__message {
+  margin-bottom: 0;
 }

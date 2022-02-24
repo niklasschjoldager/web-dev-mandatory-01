@@ -1,0 +1,71 @@
+% rebase('base.html', title="Home")
+
+<h1>Hello {{ user_first_name }}, what's on your mind today?</h1>
+
+<a href="/logout">Log out</a>
+
+<form class="form" action="/create-tweet" method="post">
+  <fieldset class="form__fieldset">
+    <legend class="form__legend">Tweet</legend>
+    <label class="form__field" for="tweet-message">
+      <span>Enter tweet message</span>
+      <input type="text" name="tweet-message" id="tweet-message" placeholder="What's on your mind?" required />
+    </label>
+    <button type="submit">Tweet</button>
+  </fieldset>
+</form>
+
+<section>
+  <h2>Latest tweets</h2>
+
+  <div class="tweet-container">
+    % if tweets: 
+      % for tweet in tweets:
+
+      <article class="tweet">
+        <div class="tweet__aside">
+          <div class="tweet__user-image">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <g>
+                <rect width="24" height="24" opacity="0"/>
+                <path d="M12 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm0-6a2 2 0 1 1-2 2 2 2 0 0 1 2-2z"/>
+                <path d="M12 13a7 7 0 0 0-7 7 1 1 0 0 0 2 0 5 5 0 0 1 10 0 1 1 0 0 0 2 0 7 7 0 0 0-7-7z"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div class="tweet__header">
+          <span class="tweet__user-full-name">{{ get_user_field('id', tweet['user_id'], 'first_name') }} {{ get_user_field('id', tweet['user_id'], 'last_name') }}</span>
+          <span>@{{ get_user_field('id', tweet['user_id'], 'username') }}</span>
+          <span>-</span>
+          <span>{{ tweet['created_at'] }}</span>
+        </div>
+        <div class="tweet__body">
+          <p class="tweet__message">{{ tweet['message'] }}</p>
+        </div>
+        <div class="tweet__footer">
+          % if user_id == tweet['user_id']:
+          <form action="/delete-tweet" method="post">
+            <input type="hidden" name="tweet-id" value={{tweet['id']}}>
+            <button type="submit">
+              <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <g>
+                  <rect width="24" height="24" opacity="0"/>
+                  <path d="M21 6h-5V4.33A2.42 2.42 0 0 0 13.5 2h-3A2.42 2.42 0 0 0 8 4.33V6H3a1 1 0 0 0 0 2h1v11a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V8h1a1 1 0 0 0 0-2zM10 4.33c0-.16.21-.33.5-.33h3c.29 0 .5.17.5.33V6h-4zM18 19a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V8h12z"/>
+                  <path d="M9 17a1 1 0 0 0 1-1v-4a1 1 0 0 0-2 0v4a1 1 0 0 0 1 1z"/>
+                  <path d="M15 17a1 1 0 0 0 1-1v-4a1 1 0 0 0-2 0v4a1 1 0 0 0 1 1z"/>
+                </g>
+              </svg>
+            </button>
+          </form>
+          % end
+        </div>
+        
+      </article>
+      % end
+    % else: 
+      <p>No tweets</p>
+    % end
+  </div>
+ 
+</section>
