@@ -3,7 +3,7 @@ import jwt
 import uuid
 import time
 
-from g import JSON_WEB_TOKEN_SECRET, SESSIONS, TWEETS, USERS
+from g import JSON_WEB_TOKEN_SECRET, sessions, tweets, users
 from form_validation import is_valid_email_address, is_user_value_unique
 from user_auth import create_user_session
 
@@ -19,7 +19,7 @@ def _():
     decoded_user_session = jwt.decode(encoded_user_session, JSON_WEB_TOKEN_SECRET, algorithms=["HS256"])
     user_session_id = decoded_user_session["session_id"]
 
-    if user_session_id not in SESSIONS:
+    if user_session_id not in sessions:
         response.delete_cookie("user_session")
         return redirect("/")
 
@@ -44,6 +44,6 @@ def _():
         "user_id": tweet_user_id,
     }
 
-    TWEETS.insert(0, tweet)
+    tweets.insert(0, tweet)
 
     return redirect("/home")

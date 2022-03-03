@@ -12,11 +12,13 @@ import index_get  # GET
 import login_get  # GET
 import logout_get  # GET
 import home_get  # GET
+import tweet_edit_get  # GET
 
 import signup_post  # POST
 import login_post  # POST
-import tweet_post  # POST
-import tweet_delete  # POST
+import tweet_create_post  # POST
+import tweet_delete_post  # POST
+import tweet_edit_post  # POST
 
 
 ############################################################
