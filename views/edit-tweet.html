@@ -1,0 +1,18 @@
+% rebase("base.html", title="Edit tweet")
+
+% include("header_home")
+
+<main class="site-content">
+  <a href="/home">Back to home</a>
+  <form class="form" action="/edit-tweet" method="post">
+    <fieldset class="form__fieldset">
+      <legend class="form__legend">Tweet</legend>
+      <input type="hidden" name="tweet-id" value={{ tweet['id'] }}>
+      <label class="form__field" for="tweet-message">
+        <span>Edit tweet message</span>
+        <input type="text" name="tweet-message" id="tweet-message" value="{{ tweet['message'] }}" required />
+      </label>
+      <button type="submit">Edit</button>
+    </fieldset>
+  </form>
+</main>
