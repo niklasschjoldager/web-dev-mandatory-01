@@ -1,7 +1,7 @@
 from bottle import get, redirect, response, request, view
 import jwt
 
-from g import SESSIONS, TWEETS, JSON_WEB_TOKEN_SECRET, USERS
+from g import sessions, tweets, JSON_WEB_TOKEN_SECRET, users
 from user_auth import get_user_field
 
 ############################################################
@@ -18,7 +18,7 @@ def _():
     decoded_user_session = jwt.decode(encoded_user_session, JSON_WEB_TOKEN_SECRET, algorithms=["HS256"])
     user_session = decoded_user_session["session_id"]
 
-    if user_session not in SESSIONS:
+    if user_session not in sessions:
         response.delete_cookie("user_session")
         return redirect("/")
 
@@ -26,5 +26,5 @@ def _():
     user_id = decoded_user_session["id"]
 
     return dict(
-        tweets=TWEETS, users=USERS, user_id=user_id, user_first_name=user_first_name, get_user_field=get_user_field
+        tweets=tweets, users=users, user_id=user_id, user_first_name=user_first_name, get_user_field=get_user_field
     )

@@ -1,6 +1,6 @@
 from bottle import get, view, redirect, request
 import jwt
-from g import JSON_WEB_TOKEN_SECRET, SESSIONS
+from g import JSON_WEB_TOKEN_SECRET, sessions
 
 ############################################################
 @get("/")
@@ -14,7 +14,7 @@ def _():
     decoded_user_session = jwt.decode(encoded_user_session, JSON_WEB_TOKEN_SECRET, algorithms=["HS256"])
     user_session = decoded_user_session["session_id"]
 
-    if user_session in SESSIONS:
+    if user_session in sessions:
         return redirect("/home")
 
     return

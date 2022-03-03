@@ -1,7 +1,7 @@
 from bottle import get, redirect, response, request
 import jwt
 
-from g import SESSIONS, JSON_WEB_TOKEN_SECRET
+from g import sessions, JSON_WEB_TOKEN_SECRET
 
 
 ############################################################
@@ -17,9 +17,9 @@ def _():
 
     response.delete_cookie("user_session")
 
-    if user_session_id not in SESSIONS:
+    if user_session_id not in sessions:
         redirect("/")
 
-    SESSIONS.remove(user_session_id)
+    sessions.remove(user_session_id)
 
     return redirect("/")

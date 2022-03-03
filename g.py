@@ -1,4 +1,4 @@
-USERS = [
+users = [
     {
         "id": "5f5f311d-ca9b-481b-8846-f7db449270f8",
         "username": "niklasschjoldager",
@@ -8,8 +8,8 @@ USERS = [
         "password": "1234",
     }
 ]
-SESSIONS = []
-TWEETS = [
+sessions = []
+tweets = [
     {
         "id": "1f62ebd4-3b6a-4b06-9ff9-24542fca3095",
         "created_at": 1645722067,

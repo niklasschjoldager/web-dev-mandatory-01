@@ -1,5 +1,5 @@
 from bottle import post, redirect, request, response
-from g import USERS
+from g import users
 from user_auth import create_user_session
 from form_validation import (
     is_user_value_unique,
@@ -21,6 +21,7 @@ def _():
     user_last_name = request.forms.get("user-last-name")
 
     # Validation
+
     if not is_valid_name(user_username):
         response.status = 400
         return "Please enter a valid username"
@@ -61,7 +62,7 @@ def _():
         "email": user_email,
         "password": user_password,
     }
-    USERS.append(user)
+    users.append(user)
     create_user_session(user)
 
     return redirect("/home")

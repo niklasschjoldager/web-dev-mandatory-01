@@ -3,7 +3,7 @@ import jwt
 import uuid
 import time
 
-from g import SESSIONS, USERS
+from g import sessions, users
 from form_validation import is_valid_email_address, is_user_value_unique
 from user_auth import create_user_session, get_user_data
 

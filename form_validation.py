@@ -1,7 +1,8 @@
-from g import REGEX_EMAIL, REGEX_PASSWORD, USERS
+from g import REGEX_EMAIL, REGEX_PASSWORD, users
 import re
 
 ############################################################
+# def is_valid_text(text, min, max):
 
 
 def is_valid_name(name_string):
@@ -42,7 +43,7 @@ def is_user_value_unique(property_name, value):
     if not value or not property_name:
         return False
 
-    for user in USERS:
+    for user in users:
         if user[property_name] == value:
             return False
 
@@ -53,7 +54,7 @@ def user_exist(property_name, value):
     if not value or not property_name:
         return False
 
-    for user in USERS:
+    for user in users:
         if user[property_name] == value:
             return True
 
